@@ -39,7 +39,7 @@ SATURDAY  : 'saturday'  's'?  | 'sat' DOT?  | 'sats' DOT?  | 'weekend';
 
 HOUR   : 'hour'   | 'hours'   | 'hr' DOT?  | 'hrs' DOT?;
 MINUTE : 'minute' | 'minutes' | 'min' DOT? | 'mins' DOT?;
-DAY    : 'day'    | 'days' ;
+DAY    : 'day'    | 'days';
 WEEK   : 'week'   | 'weeks'   | 'wks' DOT?;
 MONTH  : 'month'  | 'months';
 YEAR   : 'year'   | 'year' SINGLE_QUOTE? 's' | 'yrs' DOT?;
@@ -48,6 +48,15 @@ TODAY     : 'today';
 TOMORROW  : 'tomorow' | 'tomorrow' | 'tommorow' | 'tommorrow' | 'tmr';
 TONIGHT   : 'tonight'; 
 YESTERDAY : 'yesterday';
+
+
+//  ********* CJK support *********
+CJK_YEAR  : '年';
+CJK_MONTH : '月';
+CJK_DAY   : '日' | '号';
+CJK_HOUR : '时';
+CJK_MINUTE: '分';
+CJK_SECOND: '秒';
 
 // ********** recurrence rules **********
 
