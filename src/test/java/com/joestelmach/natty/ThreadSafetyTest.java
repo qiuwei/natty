@@ -60,14 +60,15 @@ public class ThreadSafetyTest extends AbstractTest {
       } catch (Exception e) { }
       String newDate = "4/4/2012";
       Date parsed = _parser.parse(newDate, referenceDate).get(0).getDates().get(0);
-      validateThread(parsed, baseMinute);
+      validateThread(parsed, 0);
       numOfCorrectResults.incrementAndGet();
     }
   }
 
+  // why would there be a baseminute, we don't agree.
   // We need this method, because validateDate and validateTime are not thread safe.
   private synchronized void validateThread(Date date, int baseMinute) {
     validateDate(date, 4, 4, 2012);
-    validateTime(date, 1, baseMinute, 0);
+    validateTime(date, 0, baseMinute, 0);
   }
 }

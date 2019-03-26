@@ -80,7 +80,8 @@ week_index
 explicit_date
   : ^(EXPLICIT_DATE ^(MONTH_OF_YEAR month=INT) ^(DAY_OF_MONTH dom=INT) 
         (^(DAY_OF_WEEK dow=INT))? (^(YEAR_OF year=INT))?)
-    {_walkerState.setExplicitDate($month.text, $dom.text, $dow.text, $year.text);}
+    {_walkerState.setExplicitDate($month.text, $dom.text, $dow.text, $year.text);
+    _walkerState.setExplicitTime("12", "0", "0", "am", null);}
   ;
   
 time
@@ -104,7 +105,7 @@ seek
     
   | ^(SEEK DIRECTION SEEK_BY amount=INT ^(MONTH_OF_YEAR month=INT))
     {_walkerState.seekToMonth($DIRECTION.text, $amount.text, $month.text);}
-  
+
   | ^(SEEK DIRECTION SEEK_BY (explicit_seek | relative_date)? INT SPAN)
     {_walkerState.seekBySpan($DIRECTION.text, $INT.text, $SPAN.text);}
   
